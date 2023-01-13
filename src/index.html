@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	  <script src="main.js" defer></script>
+</head>
+<body>
+  <div id="app" style="margin-left:50px">
+    <input type="text" v-model="amount" @change="getResult">
+    <br>
+    <select  v-model="itemFrom" @change="getResult">
+      <template v-for="item in currency">
+        <option v-if="item.nameA" >{{item.nameA}}</option>
+      </template>
+    </select>
+    <select  v-model="itemTo" @change="getResult">
+      <option >USD</option>
+      <option  >UAH</option>
+    </select>
+    <br>
+    <p v-if="amount && itemFrom && itemTo">{{amount}} {{itemFrom}} equals to {{result}} {{itemTo}}</p>
+    <p v-else>Введіть дані</p>
+  </div>
+</body>
+</html>
